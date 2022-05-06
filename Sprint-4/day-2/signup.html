@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-up</title>
+    <style>
+        h1{
+            text-align: center;
+            color: red;
+        }
+        #container{
+            width: 30%;
+            margin: auto;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            padding: 20px;
+        }
+        
+        input{
+            display: block;
+            margin: auto;
+            margin-top: 20px;
+            width: 60%;
+            padding: 10px;
+        }
+        input:nth-child(1){
+            margin-top: 0px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sign-up Page</h1>
+    <div id="container">
+        <form id="signupForm">
+            <input id="email" type="email" placeholder="Enter Email">
+            <input id="number" type="number" placeholder="Enter Mobile No.">
+            <input id="password" type="text" placeholder="Enter Password">
+            <input type="submit">
+        </form>
+    </div>
+</body>
+</html>
+
+<script>
+    const form = document.querySelector('#signupForm');
+
+    form.addEventListener("submit",function(){
+        event.preventDefault();
+        var obj = {
+            email : signupForm.email.value,
+            mobile : signupForm.number.value,
+            password : signupForm.password.value
+        }
+
+        localStorage.setItem("signupData",JSON.stringify(obj));;
+        alert("sign-up successful");
+        window.location.href="login.html";
+    })
+</script>

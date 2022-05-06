@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            text-align: center;
+            color: red;
+        }
+        #container{
+            width: 30%;
+            margin: auto;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            padding: 20px;
+        }
+        
+        input{
+            display: block;
+            margin: auto;
+            margin-top: 20px;
+            width: 60%;
+            padding: 10px;
+        }
+        input:nth-child(1){
+            margin-top: 0px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Login Page</h1>
+    <div id="container">
+        <form id="loginForm">
+            <input id="email" type="email" placeholder="Enter Email">
+            <input id="password" type="text" placeholder="Enter Password">
+            <input type="submit">
+        </form>
+    </div>
+</body>
+</html>
+<script>
+    const form = document.querySelector('#loginForm');
+    var signupData = JSON.parse(localStorage.getItem("signupData"));
+    form.addEventListener("submit",function(){
+        event.preventDefault();
+        var obj = {
+            email : loginForm.email.value,
+            password : loginForm.password.value
+        }
+        if(obj.email == signupData.email && obj.password == signupData.password){
+            alert("Login successful");
+        }
+        else{
+            alert("user not exits")
+        }
+        
+    })
+</script>
