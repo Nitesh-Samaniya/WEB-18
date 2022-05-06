@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>counter</title>
+    <style>
+        #btn1,#btn2{
+            padding: 10px 20px;
+            font-size: 30px;
+            background-color: aquamarine;
+            border-radius: 5px;
+            border: 1px solid greenyellow;
+        }
+        h1{
+            margin-left: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1></h1>
+    <button id="btn1">-</button>
+    <button id="btn2">+</button>
+</body>
+</html>
+<script>
+    var h1 = document.querySelector("h1");
+    var a = localStorage.getItem("counter") || 0;
+    h1.innerText = a;
+    localStorage.setItem("counter",a);
+
+    var minus = document.querySelector("#btn1");
+    minus.addEventListener("click",function(){
+        if(a>=1){
+            a--;
+            h1.innerText = a;
+            localStorage.setItem("counter",a);
+        }
+        
+    })
+    var add = document.querySelector("#btn2");
+    add.addEventListener("click",function(){
+        a++;
+        h1.innerText = a;
+        localStorage.setItem("counter",a);
+    })
+
+</script>
