@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Backend</title>
+  <style>
+    #navbar{
+        display: flex;
+        justify-content: space-around;
+        font-size: 28px;
+        background-color: aqua;
+        color: black;
+        font-weight: bold;
+        padding: 10px;
+    }
+    #form{
+      width: 70%;
+      margin: auto;
+      margin-top: 30px;
+    }
+</style>
+</head>
+<body>
+  <div id="navbar">
+    <div><a href="backend.html">Backend</a></div>
+    <div><a href="frontend.html">Frontend</a></div>
+</div>
+  <form id="form">
+    <input id="name" type="text" placeholder="Enter your name">
+    <input id="imgUrl" type="text" placeholder="Enter your Image">
+    <input id="companyLogo" type="text" placeholder="Enter your company logo">
+    <input id="role" type="text" placeholder="Enter your role">
+    <input type="submit">
+  </form>
+</body>
+</html>
+
+<script>
+  document.querySelector("#form").addEventListener("submit",sendData);
+
+  var investorData = JSON.parse(localStorage.getItem("investorKey")) || [];
+
+  function sendData(){
+    event.preventDefault();
+
+    var dataObj = {
+      investorName : form.name.value,
+      investorUrl : form.imgUrl.value,
+      investorLogo : form.companyLogo.value,
+      investorRole : form.role.value
+    };
+    
+    investorData.push(dataObj);
+    console.log(investorData);
+    localStorage.setItem("investorKey", JSON.stringify(investorData));
+    
+  }
+</script>
+

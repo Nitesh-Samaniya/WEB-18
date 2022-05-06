@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #navbar{
+            display: flex;
+            justify-content: space-around;
+            font-size: 28px;
+            background-color: aqua;
+            color: black;
+            font-weight: bold;
+            padding: 10px;
+        }
+
+        #container{
+            width: 80%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-template-rows: auto;
+            gap: 20px;
+            text-align: center;
+        }
+        p+img{
+            width: 100px;
+            margin-bottom: -1px;
+        }
+        h3{
+            font-size: 25px;
+            margin-top: -2px;
+            margin-bottom: -10px;
+        }
+        h1{
+            text-align: center;
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar">
+        <div><a href="backend.html">Backend</a></div>
+        <div><a href="frontend.html">Frontend</a></div>
+    </div>
+    <h1>Strategic Investors</h1>
+    <div id="container">
+
+    </div>
+</body>
+</html>
+
+<script>
+
+var investorData = JSON.parse(localStorage.getItem("investorKey"));
+
+        investorData.forEach(function(el){
+            var box = document.createElement("div");
+
+            var image = document.createElement("img");
+            image.setAttribute("src",el.investorUrl);
+
+            var name = document.createElement("h3");
+            name.innerText = el.investorName;
+
+            var pos = document.createElement("p");
+            pos.innerText = el.investorRole;
+
+            var com_image = document.createElement("img");
+            com_image.setAttribute("src",el.investorLogo);
+
+            box.append(image,name,pos,com_image);
+            document.querySelector("#container").append(box);
+        });
+</script>
